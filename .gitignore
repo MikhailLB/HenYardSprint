@@ -32,3 +32,8 @@ android/.cxx/
 *.iml
 .idea/
 *.log
+
+# Private keys — never commit
+*.pem
+*.p8
+*.p12
