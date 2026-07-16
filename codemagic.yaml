@@ -5,7 +5,7 @@ workflows:
     instance_type: mac_mini_m2
 
     integrations:
-      app_store_connect: HenYardSprint_ASC    # имя ключа из Codemagic → Integrations → App Store Connect
+      app_store_connect: codemagic             # имя ключа из Codemagic → Integrations → App Store Connect
 
     environment:
       groups:
