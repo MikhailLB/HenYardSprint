@@ -10,7 +10,7 @@ workflows:
     environment:
       groups:
         - code-signing                        # группа с CERTIFICATE_PRIVATE_KEY
-      flutter: latest
+      flutter: 3.41.7
       xcode: latest
       cocoapods: default
       vars:
