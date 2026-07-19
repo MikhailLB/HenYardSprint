@@ -180,14 +180,20 @@ class _HomeScreenState extends State<HomeScreen> {
       _Qa('Settings', 'Privacy & support', Icons.settings_rounded,
           HenColors.barnRed, 4),
     ];
-    return GridView.count(
-      crossAxisCount: 2,
+    return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      childAspectRatio: 1.5,
-      children: actions.map((a) {
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+        // Fixed height (not aspect-ratio based) so the card never shrinks below
+        // its content on narrow screens → no bottom overflow.
+        mainAxisExtent: 128,
+      ),
+      itemCount: actions.length,
+      itemBuilder: (context, index) {
+        final a = actions[index];
         return PressableScale(
           onTap: () => widget.onGoto(a.tab),
           child: Container(
@@ -224,7 +230,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         );
-      }).toList(),
+      },
     );
   }
 }
